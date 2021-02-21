@@ -12,6 +12,7 @@ default_args = {
     'depends_on_past': False,
     'retries': 3, 
     'retry_delay': timedelta(minutes=5),
+    'catchup': False,
     'email_on_retry': False
 }
 
@@ -19,8 +20,7 @@ default_args = {
 dag = DAG('s3_ETL_redshift_data_warehouse_dag',
           default_args=default_args,
           description='Load and transform data in Redshift with Airflow',
-          schedule_interval="@hourly",
-          catchup=False
+          schedule_interval="@hourly"
         )
 
 start_operator = DummyOperator(task_id='Begin_execution',  dag=dag)
