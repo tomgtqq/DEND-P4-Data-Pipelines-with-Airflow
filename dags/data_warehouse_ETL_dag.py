@@ -8,7 +8,7 @@ from helpers import SqlQueries
 
 default_args = {
     'owner': 'Sparkify',
-    'start_date': datetime.now() - timedelta(hours=2),
+    'start_date': datetime.datetime(2018, 1, 1, 0, 0, 0, 0),
     'depends_on_past': False,
     'retries': 3, 
     'retry_delay': timedelta(minutes=5),
